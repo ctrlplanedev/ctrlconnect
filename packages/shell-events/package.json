@@ -1,0 +1,42 @@
+{
+  "name": "@ctrlplane/shell-events",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "build": "tsup",
+    "dev": "tsc -w",
+    "lint": "eslint \"src/**/*.ts*\" --max-warnings 0",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "@ctrlshell/jest-presets/node"
+  },
+  "prettier": "@ctrlshell/prettier-config",
+  "devDependencies": {
+    "@ctrlshell/eslint-config": "workspace:*",
+    "@ctrlshell/jest-presets": "workspace:*",
+    "@ctrlshell/prettier-config": "workspace:*",
+    "@ctrlshell/typescript-config": "workspace:*",
+    "@jest/globals": "^29.7.0",
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "json-schema-to-zod": "^2.4.1",
+    "prettier": "catalog:",
+    "tsup": "^8.3.5",
+    "typescript": "5.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

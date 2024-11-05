@@ -1,0 +1,16 @@
+{
+  "name": "@ctrlshell/prettier-config",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "prettier": "catalog:",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "@ctrlshell/typescript-config": "workspace:*"
+  },
+  "prettier": "@ctrlshell/prettier-config"
+}
