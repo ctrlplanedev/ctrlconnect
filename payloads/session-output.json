@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SessionInputPayload",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["session.output"],
+      "description": "Type of payload - must be session.output"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "ID of the session that generated the output"
+    },
+    "data": {
+      "type": "string",
+      "description": "Output data from the PTY session"
+    }
+  },
+  "required": ["type", "sessionId", "data"]
+}

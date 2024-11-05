@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AgentConnectPayload",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["agent.connect"],
+      "description": "Type of payload - must be agent.register"
+    },
+    "name": {
+      "type": "string",
+      "description": "Optional ID for the session"
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional configuration for the agent"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Optional metadata for the agent as key-value string pairs"
+    }
+  },
+  "required": ["type", "name"]
+}
