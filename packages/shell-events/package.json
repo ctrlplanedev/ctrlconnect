@@ -21,7 +21,7 @@
     "@ctrlshell/prettier-config": "workspace:*",
     "@ctrlshell/tsconfig": "workspace:*",
     "@jest/globals": "^29.7.0",
-    "@types/node": "^20.11.24",
+    "@types/node": "^20.16.11",
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "json-schema-to-zod": "^2.4.1",

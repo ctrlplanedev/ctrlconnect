@@ -306,7 +306,7 @@ importers:
         specifier: ^29.7.0
         version: 29.7.0
       '@types/node':
-        specifier: ^20.11.24
+        specifier: ^20.16.11
         version: 20.16.11
       eslint:
         specifier: ^8.57.0
@@ -435,7 +435,7 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
-        specifier: ^20.11.24
+        specifier: ^20.16.11
         version: 20.16.11
       eslint:
         specifier: ^8.57.0
