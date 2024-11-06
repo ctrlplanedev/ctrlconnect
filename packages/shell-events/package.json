@@ -8,22 +8,18 @@
     "dist/**"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
     "build": "tsup",
-    "dev": "tsc -w",
-    "lint": "eslint \"src/**/*.ts*\" --max-warnings 0",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
-    "test": "jest"
-  },
-  "jest": {
-    "preset": "@ctrlshell/jest-presets/node"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@ctrlshell/prettier-config",
   "devDependencies": {
     "@ctrlshell/eslint-config": "workspace:*",
-    "@ctrlshell/jest-presets": "workspace:*",
     "@ctrlshell/prettier-config": "workspace:*",
-    "@ctrlshell/typescript-config": "workspace:*",
+    "@ctrlshell/tsconfig": "workspace:*",
     "@jest/globals": "^29.7.0",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
