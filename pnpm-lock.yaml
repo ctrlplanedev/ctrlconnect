@@ -129,9 +129,24 @@ importers:
       '@ctrlshell/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@ctrlshell/xterm-addon':
+        specifier: workspace:*
+        version: link:../../packages/xterm-addon
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.14)
+      '@xterm/addon-clipboard':
+        specifier: ^0.1.0
+        version: 0.1.0(@xterm/xterm@5.5.0)
+      '@xterm/addon-fit':
+        specifier: ^0.10.0
+        version: 0.10.0(@xterm/xterm@5.5.0)
+      '@xterm/addon-search':
+        specifier: ^0.15.0
+        version: 0.15.0(@xterm/xterm@5.5.0)
+      '@xterm/addon-web-links':
+        specifier: ^0.11.0
+        version: 0.11.0(@xterm/xterm@5.5.0)
       '@xterm/xterm':
         specifier: ^5.5.0
         version: 5.5.0
@@ -437,7 +452,7 @@ importers:
 
   packages/xterm-addon:
     dependencies:
-      '@ctrlplane/shell-events':
+      '@ctrlshell/shell-events':
         specifier: workspace:*
         version: link:../shell-events
       '@xterm/xterm':
@@ -2299,6 +2314,26 @@ packages:
       typescript:
         optional: true
 
+  '@xterm/addon-clipboard@0.1.0':
+    resolution: {integrity: sha512-zdoM7p53T5sv/HbRTyp4hY0kKmEQ3MZvAvEtiXqNIHc/JdpqwByCtsTaQF5DX2n4hYdXRPO4P/eOS0QEhX1nPw==}
+    peerDependencies:
+      '@xterm/xterm': ^5.4.0
+
+  '@xterm/addon-fit@0.10.0':
+    resolution: {integrity: sha512-UFYkDm4HUahf2lnEyHvio51TNGiLK66mqP2JoATy7hRZeXaGMRDr00JiSF7m63vR5WKATF605yEggJKsw0JpMQ==}
+    peerDependencies:
+      '@xterm/xterm': ^5.0.0
+
+  '@xterm/addon-search@0.15.0':
+    resolution: {integrity: sha512-ZBZKLQ+EuKE83CqCmSSz5y1tx+aNOCUaA7dm6emgOX+8J9H1FWXZyrKfzjwzV+V14TV3xToz1goIeRhXBS5qjg==}
+    peerDependencies:
+      '@xterm/xterm': ^5.0.0
+
+  '@xterm/addon-web-links@0.11.0':
+    resolution: {integrity: sha512-nIHQ38pQI+a5kXnRaTgwqSHnX7KE6+4SVoceompgHL26unAxdfP6IPqUTSYPQgSwM56hsElfoNrrW5V7BUED/Q==}
+    peerDependencies:
+      '@xterm/xterm': ^5.0.0
+
   '@xterm/xterm@5.5.0':
     resolution: {integrity: sha512-hqJHYaQb5OptNunnyAnkHyM8aCjZ1MEIDTQu1iIbbTD/xops91NB5yq1ZK/dC2JDbVWtF23zUtl9JE2NqwT87A==}
 
@@ -3749,6 +3784,9 @@ packages:
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
     engines: {node: '>=10'}
+
+  js-base64@3.7.7:
+    resolution: {integrity: sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -7015,6 +7053,23 @@ snapshots:
       - jest
       - supports-color
 
+  '@xterm/addon-clipboard@0.1.0(@xterm/xterm@5.5.0)':
+    dependencies:
+      '@xterm/xterm': 5.5.0
+      js-base64: 3.7.7
+
+  '@xterm/addon-fit@0.10.0(@xterm/xterm@5.5.0)':
+    dependencies:
+      '@xterm/xterm': 5.5.0
+
+  '@xterm/addon-search@0.15.0(@xterm/xterm@5.5.0)':
+    dependencies:
+      '@xterm/xterm': 5.5.0
+
+  '@xterm/addon-web-links@0.11.0(@xterm/xterm@5.5.0)':
+    dependencies:
+      '@xterm/xterm': 5.5.0
+
   '@xterm/xterm@5.5.0': {}
 
   accepts@2.0.0:
@@ -8865,6 +8920,8 @@ snapshots:
   jju@1.4.0: {}
 
   joycon@3.1.1: {}
+
+  js-base64@3.7.7: {}
 
   js-tokens@4.0.0: {}
 

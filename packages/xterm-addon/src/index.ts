@@ -1,9 +1,11 @@
 import type { IDisposable, ITerminalAddon, Terminal } from "@xterm/xterm";
 
+import { SessionInput, sessionOutput } from "@ctrlshell/shell-events";
+
 interface IAttachOptions {
   ws: WebSocket;
-  clientId: string;
-  instanceId: string;
+  agentId: string;
+  sessionId: string;
   bidirectional?: boolean;
 }
 
@@ -11,22 +13,19 @@ export class AttachAddon implements ITerminalAddon {
   private _socket: WebSocket;
   private _bidirectional: boolean;
   private _disposables: IDisposable[] = [];
-  private _clientId: string;
-  private _instanceId: string;
 
-  constructor(options: IAttachOptions) {
+  constructor(private options: IAttachOptions) {
     this._socket = options.ws;
     this._socket.binaryType = "arraybuffer";
     this._bidirectional = options.bidirectional ?? true;
-    this._clientId = options.clientId;
-    this._instanceId = options.instanceId;
   }
 
   public activate(terminal: Terminal): void {
     this._disposables.push(
       addSocketListener(this._socket, "message", (ev) => {
         const obj = JSON.parse(ev.data);
-        const data = obj.data;
+        const output = sessionOutput.parse(obj);
+        const data = output.data;
         terminal.write(typeof data === "string" ? data : new Uint8Array(data));
       }),
     );
@@ -56,13 +55,14 @@ export class AttachAddon implements ITerminalAddon {
     if (!this._checkOpenSocket()) {
       return;
     }
-    const obj = JSON.stringify({
-      type: "shell/data",
-      clientId: this._clientId,
-      instanceId: this._instanceId,
+
+    const input: SessionInput = {
+      type: "session.input",
+      sessionId: this.options.sessionId,
       data,
-    });
-    this._socket.send(obj);
+    };
+
+    this._socket.send(JSON.stringify(input));
   }
 
   private _sendBinary(data: string): void {

@@ -1,5 +1,5 @@
 {
-  "name": "@ctrlplane/xterm-addon",
+  "name": "@ctrlshell/xterm-addon",
   "version": "0.0.0",
   "private": true,
   "main": "./dist/index.js",
@@ -36,7 +36,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@ctrlplane/shell-events": "workspace:*",
+    "@ctrlshell/shell-events": "workspace:*",
     "@xterm/xterm": "^5.5.0"
   }
 }
